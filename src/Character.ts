@@ -1,6 +1,6 @@
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Elf } from './Races';
 import getRandomInt from './utils';
 
@@ -54,7 +54,7 @@ class Character implements Fighter {
     return this.damageCalculation(damage > 0 ? damage : 0);
   }
 
-  public attack(enemy: Fighter): void {
+  public attack(enemy: SimpleFighter): void {
     const attValue = this._strength;
     enemy.receiveDamage(attValue);
   }
@@ -68,7 +68,7 @@ class Character implements Fighter {
     this.LPVerificationOnLevelUp();
   }
 
-  public special(enemy: Fighter): void {
+  public special(enemy: SimpleFighter): void {
     this._energy.amount -= 2;
     const specialValue = Math
       .floor((this._defense / 2) + (this._dexterity / 2));
