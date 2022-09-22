@@ -1,22 +1,22 @@
 import Race from './Race';
 
-class Orc extends Race {
+class Dwarf extends Race {
   static _instancias = 0;
   private _maxLifePoints: number;
 
   constructor(name: string, dex: number) {
     super(name, dex);
 
-    this._maxLifePoints = 74;
+    this._maxLifePoints = 80;
 
-    Orc._instancias += 1;
+    Dwarf._instancias += 1;
   }
 
   static createdRacesInstances(): number {
-    return Orc._instancias;
+    return Dwarf._instancias;
   }
 
   public get maxLifePoints(): number { return this._maxLifePoints; }
 }
 
-export default Orc;
+export default Dwarf;
