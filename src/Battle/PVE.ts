@@ -48,14 +48,20 @@ class PVE extends Battle {
     return [playerLP, monstersLP];
   }
 
-  public fight(): number {
+  private consoleLogLP(): void {
     console.log(`
     Player LP: ${this.player.lifePoints} | \
     Monsters LP: ${this.monstersLPCalculation()}`);
+  }
 
+  public fight(): number {
+    this.consoleLogLP();
     const playerAndMonsterLP = this.battleCalculation();
-    if (!playerAndMonsterLP.includes(-1)) return this.fight();
+    if (!playerAndMonsterLP.includes(-1)) {
+      return this.fight();
+    }
 
+    this.consoleLogLP();
     return super.fight();
   }
 }

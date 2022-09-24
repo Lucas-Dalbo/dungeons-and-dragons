@@ -16,14 +16,20 @@ class PVP extends Battle {
     return [this.player.lifePoints, this._player2.lifePoints];
   }
 
-  public fight(): number {
+  private consoleLogLP(): void {
     console.log(`
     Player 1 LP: ${this.player.lifePoints} | \
     Player 2 LP: ${this._player2.lifePoints}`);
+  }
 
+  public fight(): number {
+    this.consoleLogLP();
     const playersLP = this.battleCalculation();
-    if (!playersLP.includes(-1)) return this.fight();
+    if (!playersLP.includes(-1)) {
+      return this.fight();
+    }
 
+    this.consoleLogLP();
     return super.fight();
   }
 }
