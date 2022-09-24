@@ -1,7 +1,7 @@
 import Monster from './Monster';
 
 class Dragon extends Monster {
-  constructor(strength = 250, lifePoints = 999) {
+  constructor(lifePoints = 999, strength = 250) {
     super(lifePoints, strength);
   }
 }
